@@ -94,7 +94,7 @@
 <script>
 function login(){
 var settings = {
-  "url": "http://127.0.0.1:8000/api/login",
+  "url": "system/login.php",
   "method": "POST",
   "timeout": 0,
   "headers": {
@@ -102,16 +102,18 @@ var settings = {
     "Authorization": "Bearer 8181eecdf383dc2f28484a441a5ca5c4ef91c9cff6cb94909d0d9c1848e2924c"
   },
   "data": {
-    "name": "asdasd sdfsdf",
     "email": $("#email").val(),
-    "password": $("#password").val(),
-    "password_confirmation": "123ewt123"
+    "password": $("#password").val()
   }
 };
 
 $.ajax(settings).done(function (response) {
-  localStorage.token = response.access_token;
+ // localStorage.token = response.access_token;
+ var tmp = JSON.parse(response);
+
+  if(tmp.message=="god"){
   window.location='applications.php';
+}
 
 });
 }
