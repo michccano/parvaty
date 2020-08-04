@@ -261,7 +261,7 @@
 <script>
 
   if(localStorage.token==undefined){
-    window.location="login.php";
+  //  window.location="login.php";
   }
 
 var settings = {
